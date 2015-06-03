@@ -6,10 +6,8 @@ public class ComparePredicate<V extends Comparable<V>> implements TreePredicate<
 	private V maxEle = null;
 	
 	public ComparePredicate(V minEle, V maxEle) {
-		if (maxEle instanceof java.lang.Comparable<?> && minEle instanceof java.lang.Comparable<?>) {
-			this.minEle = minEle;
-			this.maxEle = maxEle;
-		}
+		this.minEle = minEle;
+		this.maxEle = maxEle;
 	}
 	
 	@Override

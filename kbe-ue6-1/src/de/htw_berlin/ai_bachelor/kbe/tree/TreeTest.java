@@ -1,6 +1,7 @@
 package de.htw_berlin.ai_bachelor.kbe.tree;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class TreeTest {
@@ -11,14 +12,22 @@ public class TreeTest {
 		Tree<Integer> rootTree = new Tree<Integer>(1, leftTree1, rightTree1);
 		System.out.println(export(rootTree));
 		System.out.println(TreeSum.sum(rootTree).toString());
-		TreePredicate<Integer> tp = new ComparePredicate<Integer>(5, 40);
-		System.out.println(tp.isOK(leftTree2));
+		ComparePredicate<Integer> tp = new ComparePredicate<Integer>(20, 50);
+		Collection<Integer> l =  new ArrayList<Integer>();
+		l = filterElements(tp, rootTree);
+		System.out.println(l);
 	}
 	
 	public static <V extends Comparable<V>> java.util.Collection<V> filterElements(ComparePredicate<V> cp, Tree<V> t) {
-		List<V> l = new ArrayList<V>();  
-		if (cp.isOK(t)){
-			
+		List<V> l = new ArrayList<V>();
+		if (t != null && cp.isOK(t)){
+			l.add(t.getValue());
+		}
+		if (t.getLeft() != null) {
+			l.addAll(filterElements(cp, t.getLeft()));
+		}
+		if (t.getRight() != null) {
+			l.addAll(filterElements(cp, t.getRight()));
 		}
 		return l;
 	}
