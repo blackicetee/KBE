@@ -1,0 +1,33 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+<h:head>
+	<h:outputStylesheet library="css" name="todo.css" />
+	<title>ToDo-Liste</title>
+</h:head>
+
+<body>
+    <h:form id="form">
+    	
+		<h:outputText value="Meine ToDo-Liste" class="tableheader"/>
+		<h:dataTable value="#{toDoListMB.toDoList}" var="ToDo">
+			<h:column>
+				<f:facet name="header">ToDo</f:facet>
+				<h:outputText value="#{ToDo.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"></f:facet>
+				<h:selectBooleanCheckbox value="#{ToDo.done}"></h:selectBooleanCheckbox>
+			</h:column>
+		</h:dataTable>
+		<h:outputText value="Derzeit sind #{toDoListMB.toDoList.numberOfDones()} von #{toDoListMB.toDoList.numberOfDones()} ToDos erledigt." />
+		<h:commandButton id="save" action="#{toDoListMB.save}" value="Speichern"></h:commandButton>
+	
+	</h:form>  
+	
+</body>
+</html>
