@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<faces-config version="2.2"
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+<application>
+    <message-bundle>vvskMessages_de</message-bundle>
+</application>
+
+<lifecycle>
+    <phase-listener>de.htw_berlin.ai_bachelor.kbe.checklist.MeinListener</phase-listener>
+</lifecycle>
+
+<managed-bean>
+    <managed-bean-name>currentDate</managed-bean-name>
+    <managed-bean-class>java.util.Date</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<!--  
+<navigation-rule>
+
+</navigation-rule>
+-->
+</faces-config>

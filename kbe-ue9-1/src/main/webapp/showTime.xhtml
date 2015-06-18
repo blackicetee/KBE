@@ -1,0 +1,22 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+<h:head>
+	<h:outputStylesheet library="css" name="todo.css" />
+	<title> aktuelle Uhrzeit </title>
+</h:head>
+
+<body>
+    <h:outputText value="Die Uhrzeit" class="tableheader"/>
+    <br/>
+    <h:outputText value="#{currentDate}">
+    	<f:convertDateTime pattern="dd.MM.yyyy, HH:mm:ss" timeZone="GMT+2" type="date" />
+	</h:outputText>
+	<br/>
+	<h:link value="ToDo-Liste" outcome="editToDoList" />
+</body>
+</html>
